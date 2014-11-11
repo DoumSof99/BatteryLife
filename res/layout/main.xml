@@ -4,33 +4,25 @@
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
         xmlns:android="http://schemas.android.com/apk/res/android"
-        android:background="@drawable/background_mdpi_v">
+        android:background="#ff3c3f41">
     <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
             android:id="@+id/textView"
-            android:layout_toStartOf="@+id/imageButton"
             android:layout_gravity="left"
             android:textStyle="normal"
             android:textSize="@android:dimen/app_icon_size"
-            android:layout_above="@+id/textView2"
-            android:layout_alignParentEnd="true" android:layout_alignParentStart="true"/>
-    <TextView
+            android:layout_alignParentTop="true" android:layout_alignParentStart="true"
+            android:layout_marginTop="77dp" android:textColor="#ffffffff" android:autoText="false"/>
+    <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textAppearance="?android:attr/textAppearanceLarge"
-            android:id="@+id/textView2"
-            android:layout_centerVertical="true"
-            android:layout_centerHorizontal="true" android:autoText="false" android:textColor="#ff3eff11"
-            android:textSize="@android:dimen/thumbnail_height" android:textStyle="italic"/>
-    <ImageButton
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/imageButton"
-            android:background="@drawable/button_start"
-            android:onClick="startClick"
-            android:contentDescription="@string/start_button"
-            android:layout_marginBottom="74dp" android:layout_alignParentBottom="true"
-            android:layout_centerHorizontal="true"/>
+            android:text="@string/statistic_button"
+            android:id="@+id/statistic_button"
+            android:layout_marginBottom="58dp" android:background="#ffd4ff6d" android:textColor="#ff000000"
+            style="@android:style/Theme.Black" android:ellipsize="middle" android:focusableInTouchMode="false"
+            android:textSize="@android:dimen/app_icon_size" android:layout_alignParentBottom="true"
+            android:layout_centerHorizontal="true"
+            android:onClick="statisticClick"/>
 </RelativeLayout>

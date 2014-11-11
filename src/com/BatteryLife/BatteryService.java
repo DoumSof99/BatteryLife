@@ -18,14 +18,6 @@ public class BatteryService extends Service {
     private int status;
     private String batteryInfo;
 
-    /*public void setStatus(int status) {
-        this.status = status;
-    }
-
-    public int getStatus() {
-        return status;
-    }*/
-
     @Override
     public void onCreate() {
         super.onCreate();

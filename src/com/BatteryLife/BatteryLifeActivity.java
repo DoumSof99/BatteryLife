@@ -24,7 +24,7 @@ public class BatteryLifeActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
         text = (TextView) findViewById(R.id.textView);
-        text1 = (TextView) findViewById(R.id.textView2);
+        //text1 = (TextView) findViewById(R.id.textView2);
         br = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
@@ -36,6 +36,12 @@ public class BatteryLifeActivity extends Activity {
         };
         intFilt = new IntentFilter(BROADCAST_ACTION);
         registerReceiver(br, intFilt);
+        startService(new Intent(this, BatteryService.class));
+    }
+
+    public void statisticClick(View view){
+        Intent powerIntent = new Intent(Intent.ACTION_POWER_USAGE_SUMMARY);
+        startActivity(powerIntent);
     }
 
     @Override
@@ -57,9 +63,5 @@ public class BatteryLifeActivity extends Activity {
         chargePct = savedInstanceState.getInt("ChargerPct");
         text.setText(batinfo);
         //text1.setText(chargePct);
-    }
-
-    public void startClick(View view) {
-        startService(new Intent(this, BatteryService.class));
     }
 }
