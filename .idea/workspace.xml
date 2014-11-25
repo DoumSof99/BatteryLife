@@ -48,11 +48,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="391913b8-7407-4629-9835-38635480ad3d" name="Default" comment="25.11.2014">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/BatteryLife/BatteryLifeActivity.java" afterPath="$PROJECT_DIR$/src/com/BatteryLife/BatteryLifeActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/BatteryLife/BatteryService.java" afterPath="$PROJECT_DIR$/src/com/BatteryLife/BatteryService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/gen/com/BatteryLife/BuildConfig.java" afterPath="$PROJECT_DIR$/gen/com/BatteryLife/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/res/layout/main.xml" afterPath="$PROJECT_DIR$/res/layout/main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="BatteryLife.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -672,15 +668,20 @@
       <workItem from="1416758305450" duration="2902000" />
       <workItem from="1416768373740" duration="554000" />
       <workItem from="1416859037679" duration="5427000" />
-      <workItem from="1416947831311" duration="4757000" />
+      <workItem from="1416947831311" duration="4951000" />
     </task>
+    <task id="LOCAL-00001" summary="25.11.2014">
+      <created>1416952735959</created>
+      <updated>1416952735959</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="188982000" />
+    <option name="totallyTimeSpent" value="189176000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="81" y="71" width="1785" height="940" extended-state="0" />
+    <frame x="81" y="71" width="1785" height="940" extended-state="1" />
     <editor active="true" />
     <layout>
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />

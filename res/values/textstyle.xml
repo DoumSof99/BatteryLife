@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="UiTestTextView">
+        <!-- Цвет текста -->
+        <item name="android:textColor">#B3B7FFFC</item>
+        <!-- Размер текста -->
+        <item name="android:textSize">28sp</item>
+        <!-- Добавляем эффект тени -->
+        <item name="android:shadowColor">#333333</item>
+        <item name="android:shadowDx">1</item>
+        <item name="android:shadowDy">2</item>
+        <item name="android:shadowRadius">3</item>
+    </style>
+</resources>
