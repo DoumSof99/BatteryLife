@@ -15,8 +15,6 @@ public class BatteryService extends Service {
 
     private SoundBox box;
     private BroadcastReceiver receiver;
-    private int status;
-    private String batteryInfo;
 
     @Override
     public void onCreate() {
@@ -51,9 +49,11 @@ public class BatteryService extends Service {
                 int healt = intent.getIntExtra(BatteryManager.EXTRA_HEALTH, -1);
                 float voltage = (float) intent.getIntExtra(BatteryManager.EXTRA_VOLTAGE, -1);
                 float temperature = (float) intent.getIntExtra(BatteryManager.EXTRA_TEMPERATURE, -1);
-                boolean present = intent.getBooleanExtra(BatteryManager.EXTRA_PRESENT, false);
-                status = intent.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
                 String technology = intent.getStringExtra(BatteryManager.EXTRA_TECHNOLOGY);
+                int status = intent.getIntExtra(BatteryManager.EXTRA_STATUS, -1);
+                int plugged = intent.getIntExtra(BatteryManager.EXTRA_PLUGGED, -1);
+
+                int chargedPct = (level * 100) / scale;
 
                 String health = "Not reported";
                 switch (healt) {
@@ -89,19 +89,26 @@ public class BatteryService extends Service {
                         break;
                 }
 
-                int chargedPct = (level * 100) / scale;
-
-                batteryInfo = "Battery Info:" + "\nHealth: " + health +
-                        "\nStatus: " + batteryStatus +
-                        "\nCharged: " + chargedPct + "%" +
-                        "\nVoltage: " + Float.toString(voltage) +
-                        "\nTemperature: " + Float.toString(temperature / 10) + "C" +
-                        "\nTechnology: " + technology +
-                        "\nBattery present: " + Boolean.toString(present) + "\n";
+                String sPlugged;
+                switch (plugged) {
+                    case BatteryManager.BATTERY_PLUGGED_AC:
+                        sPlugged = "On AC";
+                        break;
+                    case BatteryManager.BATTERY_PLUGGED_USB:
+                        sPlugged = "On USB";
+                        break;
+                    default:
+                        sPlugged = "Not Reported";
+                }
 
                 Intent infoIntent = new Intent(BatteryLifeActivity.BROADCAST_ACTION);
-                infoIntent.putExtra("BatteryInfo", batteryInfo);
-                infoIntent.putExtra("ChargedPct", chargedPct);
+                infoIntent.putExtra("Health", health);
+                infoIntent.putExtra("Status", batteryStatus);
+                infoIntent.putExtra("Charged", chargedPct);
+                infoIntent.putExtra("Voltage", voltage);
+                infoIntent.putExtra("Temperature", temperature);
+                infoIntent.putExtra("Technology", technology);
+                infoIntent.putExtra("Plugged", sPlugged);
                 sendBroadcast(infoIntent);
                 box.playStatusMode(status, chargedPct);
             }

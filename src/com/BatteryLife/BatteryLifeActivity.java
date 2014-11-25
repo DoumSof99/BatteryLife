@@ -12,26 +12,38 @@ import android.widget.TextView;
 public class BatteryLifeActivity extends Activity {
 
     public final static String BROADCAST_ACTION = "com.BatteryLife";
-    private TextView text;
-    private TextView text1;
+    private TextView health;
+    private TextView status;
+    private TextView charged;
+    private TextView voltage;
+    private TextView temperature;
+    private TextView technology;
+    private TextView plugged;
     private BroadcastReceiver br;
-    private String batinfo;
-    private int chargePct;
     private IntentFilter intFilt;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
-        text = (TextView) findViewById(R.id.textView);
-        //text1 = (TextView) findViewById(R.id.textView2);
+        health = (TextView) findViewById(R.id.textView10);
+        status = (TextView) findViewById(R.id.textView11);
+        charged = (TextView) findViewById(R.id.textView12);
+        voltage = (TextView) findViewById(R.id.textView13);
+        temperature = (TextView) findViewById(R.id.textView14);
+        technology = (TextView) findViewById(R.id.textView15);
+        plugged = (TextView) findViewById(R.id.textView16);
+
         br = new BroadcastReceiver() {
             @Override
             public void onReceive(Context context, Intent intent) {
-                batinfo = intent.getStringExtra("BatteryInfo");
-                chargePct = intent.getIntExtra("ChargedPct",0);
-                text.setText(batinfo);
-                //text1.setText(chargePct + " %");
+                health.setText(intent.getStringExtra("Health"));
+                status.setText(intent.getStringExtra("Status"));
+                charged.setText(Integer.toString(intent.getIntExtra("Charged", 0)) + " %");
+                voltage.setText(Float.toString(intent.getFloatExtra("Voltage", 0)) + " V");
+                temperature.setText(Float.toString(intent.getFloatExtra("Temperature", 0) / 10) + " C");
+                technology.setText(intent.getStringExtra("Technology"));
+                plugged.setText(intent.getStringExtra("Plagged"));
             }
         };
         intFilt = new IntentFilter(BROADCAST_ACTION);
@@ -52,16 +64,16 @@ public class BatteryLifeActivity extends Activity {
 
     protected void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
-        outState.putString("batteryInfo", batinfo);
+        //outState.putString("batteryInfo", batinfo);
         //outState.putInt("ChargerPct", chargePct);
     }
 
-    protected void onRestoreInstanceState(Bundle savedInstanceState) {
+    /*protected void onRestoreInstanceState(Bundle savedInstanceState) {
         super.onRestoreInstanceState(savedInstanceState);
         registerReceiver(br, intFilt);
         batinfo = savedInstanceState.getString("batteryInfo");
         chargePct = savedInstanceState.getInt("ChargerPct");
-        text.setText(batinfo);
+        text1.setText(batinfo);
         //text1.setText(chargePct);
-    }
+    }*/
 }
